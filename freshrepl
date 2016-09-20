@@ -1,4 +1,6 @@
 #!/usr/bin/env node
 
-require('./index').default()
+const repl = require('./dist/index').default
+
+repl()
 require('babel-register')
