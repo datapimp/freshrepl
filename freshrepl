@@ -1,5 +1,4 @@
 #!/usr/bin/env node
 
+require('./dist/index')
 require('babel-register')
-
-require('./src/index')
