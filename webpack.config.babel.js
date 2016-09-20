@@ -38,8 +38,10 @@ module.exports = function (env) {
     */
 
 
-  config.module.unknownContextRegExp = /$^/
-  config.module.unknownContextCritical = false
+  //config.module.unknownContextRegExp = /$^/
+  //config.module.unknownContextCritical = false
+  config.module.exprContextRegExp = /$^/,
+  config.module.exprContextCritical = false
 
   delete(config.module.preLoaders)
   delete(config.output.devtoolModuleFilenameTemplate)

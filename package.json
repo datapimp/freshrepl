@@ -2,7 +2,7 @@
   "name": "freshrepl",
   "version": "1.2.1",
   "description": "an awesome repl",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha --require babel-register src/**/*.spec.js",
     "build": "webpack --config webpack.config.babel.js"
