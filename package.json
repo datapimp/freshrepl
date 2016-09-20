@@ -10,6 +10,13 @@
   "bin": {
     "freshrepl": "./freshrepl"
   },
+  "files": [
+    "dist",
+    "src",
+    "index.js",
+    "README.md",
+    "freshrepl"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/datapimp/freshrepl.git"
