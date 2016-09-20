@@ -25,7 +25,7 @@ module.exports = function (env) {
       })
     )
     .plugin('webpack.NamedModulesPlugin')
-    .plugin('webpack.HotModuleReplacementPlugin')
+    //.plugin('webpack.HotModuleReplacementPlugin')
     .plugin('webpack.NoErrorsPlugin')
     .getConfig()
 
@@ -38,14 +38,11 @@ module.exports = function (env) {
     */
 
 
-
   config.module.unknownContextRegExp = /$^/
   config.module.unknownContextCritical = false
 
   delete(config.module.preLoaders)
   delete(config.output.devtoolModuleFilenameTemplate)
-
-  console.log(config)
 
   return config
 }
