@@ -29,4 +29,6 @@ const repl = (options = {}, context = {}, ready) => create({
 
 export default repl
 
-repl()
+repl({}, {
+  axios: require('axios'), lodash: require('lodash')
+})

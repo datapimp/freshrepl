@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/datapimp/freshrepl#readme",
   "dependencies": {
+    "axios": "^0.14.0",
     "babel-core": "^6.14.0",
     "babel-polyfill": "^6.13.0",
     "babel-register": "^6.14.0",
@@ -42,10 +43,10 @@
     "pretty-cli": "0.0.14",
     "prompt": "^1.0.0",
     "pty.js": "^0.3.1",
-    "term.js": "0.0.7",
     "react": "^15.3.2",
     "react-blessed": "^0.1.7",
-    "source-map-support": "^0.4.2"
+    "source-map-support": "^0.4.2",
+    "term.js": "0.0.7"
   },
   "devDependencies": {
     "chai": "^3.5.0",
