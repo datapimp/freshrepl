@@ -46,11 +46,21 @@ Object.defineProperty(cli, 'emoji', {
   value: emoji,
 })
 
-cli.addCustomMethod('heading3', (value) => {
-  console.log(
+Object.defineProperty(cli, 'icon', {
+  enumerable: false,
+  value: (...args) => emoji.get(...args),
+})
+
+Object.defineProperty(cli, 'spinner', {
+  enumerable: false,
+  value: require('cli-spinner').Spinner,
+})
+
+cli.addCustomMethod('banner', (value) => {
+  cli.print(
     figlet.textSync(value || 'FreshREPL', {
       font: 'Slant',
-    }).rainbow
+    }).rainbow, 2
   )
 })
 
