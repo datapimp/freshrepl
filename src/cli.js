@@ -8,11 +8,11 @@ export const defaultTemplate = {
   warning: (message) => message,
   error: (message) => `${emoji.get('boom')}\n${message}`,
   success: (message) => message,
-  note: (message) => message
+  note: (message) => message,
 }
 
 export const cli = pretty({
-  template: defaultTemplate
+  template: defaultTemplate,
 })
 
 cli.cmd = (...args) => cli.addCustomMethod(...args)
@@ -33,7 +33,7 @@ const tables = {}
 
 Object.defineProperty(cli, 'tables', {
   enumerable: false,
-  value: () => tables
+  value: () => tables,
 })
 
 Object.defineProperty(cli, 'figlet', {
@@ -44,6 +44,14 @@ Object.defineProperty(cli, 'figlet', {
 Object.defineProperty(cli, 'emoji', {
   enumerable: false,
   value: emoji,
+})
+
+cli.addCustomMethod('heading3', (value) => {
+  console.log(
+    figlet.textSync(value || 'FreshREPL', {
+      font: 'Slant',
+    }).rainbow
+  )
 })
 
 cli.addCustomMethod('table', (tableName, data) => {

@@ -5,23 +5,27 @@ module.exports = function (env) {
   const config = require('@terse/webpack').api()
     .target('node')
     .env(env)
-    .entry('src/index.js')
+    .entry({
+      index: join(__dirname, 'src', 'index.js'),
+      app: join(__dirname, 'src', 'app/index.js'),
+      runner: join(__dirname, 'src', 'app/runner.js'),
+    })
     .output('dist')
     .node({
       __dirname: false,
       __filename: false,
       process: false,
-      console: false
+      console: false,
     })
     .loader('js', '.js', {
       loader: 'babel',
       query: {
-        cacheDirectory: true
-      }
+        cacheDirectory: true,
+      },
     })
     .externals(
       require('./src/webpack/helpers/externals')({
-        pkg: require(process.cwd() + '/package.json')
+        pkg: require(process.cwd() + '/package.json'),
       })
     )
     .plugin('webpack.NamedModulesPlugin')
