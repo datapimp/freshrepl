@@ -7,8 +7,8 @@ module.exports = function (env) {
     .env(env)
     .entry({
       index: join(__dirname, 'src', 'index.js'),
-      app: join(__dirname, 'src', 'app/index.js'),
-      runner: join(__dirname, 'src', 'app/runner.js'),
+      //app: join(__dirname, 'src', 'app/index.js'),
+      //runner: join(__dirname, 'src', 'app/runner.js'),
     })
     .output('dist')
     .node({

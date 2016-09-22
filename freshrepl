@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 
-const repl = require('./dist/index').default
+const argv = require('minimist')(process.argv.slice(2))
+const {create, cli} = require('./dist/index')
 
-repl()
-require('babel-register')
+if (argv.help || process.argv.indexOf('help') >= 0) {
+  cli.print('WHAT Up.')
+} else {
+  create(argv, {argv})
+}
+
