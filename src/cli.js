@@ -2,6 +2,8 @@ import pretty from 'pretty-cli'
 import figlet from 'figlet'
 import emoji from 'node-emoji'
 import Table from 'cli-table'
+import sample from 'lodash/sample'
+import colors from 'colors'
 
 export const defaultTemplate = {
   info: (message) => message,
@@ -56,11 +58,47 @@ Object.defineProperty(cli, 'spinner', {
   value: require('cli-spinner').Spinner,
 })
 
-cli.addCustomMethod('banner', (value) => {
+Object.defineProperty(cli, 'colors', {
+  enumerable: false,
+  value: colors,
+})
+
+Object.defineProperty(cli, 'random', {
+  enumerable: false,
+  value: {
+    get color() {
+      return sample([
+        colors.red, colors.cyan, colors.magenta, colors.green, colors.blue, colors.white, colors.grey, colors.yellow,
+      ])
+    },
+    get font() {
+      return sample(require('figlet').fontsSync())
+    },
+  },
+})
+
+cli.addCustomMethod('randomBanner', (value, indent = 2, debug = false) => {
+  const font = cli.random.font
+
+  if (debug) {
+    console.log('Using font', font)
+  }
+  
+  const banner = figlet.textSync(value, {
+    font: cli.random.font,
+  })
+  .split("\n")
+  .map(line => cli.random.color(line))
+  .join("\n")
+
+  cli.print(banner, indent)
+})
+
+cli.addCustomMethod('banner', (value, indent = 2) => {
   cli.print(
     figlet.textSync(value || 'FreshREPL', {
       font: 'Slant',
-    }).rainbow, 2
+    }), indent
   )
 })
 

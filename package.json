@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --require babel-register src/**/*.spec.js",
     "build": "webpack --config webpack.config.js",
-    "dev": "npm run build && ./freshrepl --customize freshrepl.js"
+    "dev": "npm run build && ./freshrepl"
   },
   "bin": {
     "freshrepl": "./freshrepl"
@@ -41,6 +41,7 @@
     "cli-spinner": "^0.2.5",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
+    "editor": "^1.0.0",
     "figlet": "^1.1.2",
     "findup-sync": "^0.4.2",
     "js-beautify": "^1.6.4",

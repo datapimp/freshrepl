@@ -18,7 +18,7 @@ export function create (options = {}, context = {}, ready) {
     require('babel-register')
   }
 
-  let customize = options.customize || (exists(join(process.cwd(), '.freshrepl')) && '.freshrepl')
+  let customize = options.customize || (exists(join(process.cwd(), '.freshrepl.js')) && '.freshrepl.js')
 
   if (typeof customize === 'string') {
     customize = __non_webpack_require__(resolve(process.cwd(), customize))
@@ -106,9 +106,8 @@ export function create (options = {}, context = {}, ready) {
 
   server.on('reset', () => initializeContext())
 
-  initializeContext()
-
   try {
+    initializeContext()
     promisify(server)
   } catch (error) {
     ready(error)
