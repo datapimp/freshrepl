@@ -1,6 +1,6 @@
 {
   "name": "freshrepl",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "an awesome repl",
   "main": "dist/index.js",
   "scripts": {
